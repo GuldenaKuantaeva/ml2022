@@ -2,7 +2,7 @@ from pandas.io.parsers.base_parser import isna
 import numpy as np
 
 def replace_nans(X:np.ndarray) -> np.ndarray:
-    return np.where(np.isnan(X), np.ma.array(X, mask=np.isnan(X)).mean(axis=0), X)
+    return np.where(np.isnan(X), np.ma.array(X, mask=np.isnan(X)).mean(axis=0), X) #если np.isnan(X) , то заменям 0 or медиана 
 from numpy.testing import assert_array_equal, assert_array_almost_equal
 ######################################################
 assert_array_equal(replace_nans(
